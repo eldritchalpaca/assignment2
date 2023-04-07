@@ -29,19 +29,20 @@ export const App = () => {
             by - <b style={{ color: 'orange' }}>Design Shubham, Development Abraham</b>
           </p>
           <div className="py-10">
-            {(Categories) ? <p className='text-white'>Tags : </p> : ''}
+             {!inCart && (Categories) ? <p className='text-white'>Tags : </p> : ''}
             {
-              Categories.map(tag => <button key={tag} className="inline-block bg-amber-600 rounded-full px-3 py-1
+              !inCart && Categories.map(tag => <button key={tag} className="inline-block bg-amber-600 rounded-full px-3 py-1
               text-sm font-semibold text-gray-700 mr-2 mt-2"
                 onClick={() => { handleClick(tag) }}>{tag}</button>)
             }
-            <button onClick={() => {goToCart()}}>Go to Cart</button>
+            
           </div>
+          <button className='text-black bg-white px-3 py-1' onClick={() => {goToCart()}}>{inCart ? "Return to Shopping" : "Go to Cart"}</button>
         </div>
       </div>
       <div className="ml-5 p-10 xl:basis-4/5">
         {console.log("Before render :", Products.length, ProductsCategory.length)}
-        {inCart && render_products(ProductsCategory)}
+        {!inCart && render_products(ProductsCategory)}
       </div>
     </div>
   );
