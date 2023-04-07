@@ -29,21 +29,22 @@ export const App = () => {
             by - <b style={{ color: 'orange' }}>Design Shubham, Development Abraham</b>
           </p>
           <div className="py-10">
-             {!inCart && (Categories) ? <p className='text-white'>Tags : </p> : ''}
+            {!inCart && (Categories) ? <p className='text-white'>Tags : </p> : ''}
             {
               !inCart && Categories.map(tag => <button key={tag} className="inline-block bg-amber-600 rounded-full px-3 py-1
               text-sm font-semibold text-gray-700 mr-2 mt-2"
                 onClick={() => { handleClick(tag) }}>{tag}</button>)
             }
-            
+
           </div>
-          <button className='text-black bg-white px-3 py-1' onClick={() => {goToCart()}}>{inCart ? "Return to Shopping" : "Go to Cart"}</button>
+          <button className='text-black bg-white px-3 py-1' onClick={() => { goToCart() }}>{inCart ? "Return to Shopping" : "Go to Cart"}</button>
         </div>
       </div>
       <div className="ml-5 p-10 xl:basis-4/5">
         {console.log("Before render :", Products.length, ProductsCategory.length)}
         {!inCart && render_products(ProductsCategory)}
       </div>
+
     </div>
   );
 
@@ -52,9 +53,9 @@ export const App = () => {
 const render_products = (ProductsCategory) => {
   return <div className='category-section fixed'>
     <h2 className="text-3xl font-extrabold tracking-tight text-gray-600 category-title">Products ({ProductsCategory.length})</h2>
-    <div className="m-6 p-3 mt-10 ml-0 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-10" style={{
-      maxHeight: '800px', overflowY:
-        'scroll'
+    <div className="m-6 p-3 mt-10 ml-0 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-10" style={{
+      maxHeight: window.innerHeight - 100, overflowY:
+        'scroll'/* , marginBottom: '500px', paddingBottom:100 */
     }}>
       {/* Loop Products */}
       {ProductsCategory.map((product, index) => (
@@ -81,6 +82,11 @@ const render_products = (ProductsCategory) => {
           </div>
         </div>
       ))}
+      <div>
+        <p>
+          {/* dummy element to add space to bottom */}
+        </p>
+      </div>
     </div>
   </div>
 }

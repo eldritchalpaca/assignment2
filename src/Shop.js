@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import items from "./selected_products.json";
 
-const Shop = () => {
+export const Shop = () => {
     const [cart, setCart] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
 
