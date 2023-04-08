@@ -4,6 +4,7 @@ import items from "./selected_products.json";
 export const Shop = () => {
     const [cart, setCart] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
+    const [inCart, cartState] = useState(false);
 
     useEffect(() => {
         total();
@@ -81,14 +82,14 @@ export const Shop = () => {
                                 </div>
                             </div>
                         </div>
-                        <div>{listItems}</div>
+                        <div>{(!inCart) && listItems} {(inCart) && cartItems}</div>
                     </div>
                     <div class="float-end">
                         <p class="mb-0 me-5 d-flex align-items-center">
-                            <span class="small text-muted me-2">Order total:</span>
-                            <span class="lead fw-normal">${cartTotal}</span>
+                            {inCart && <span class="small text-muted me-2">Order total:</span>}
+                            {inCart && <span class="lead fw-normal">${cartTotal}</span>}
                         </p>
-                        <div>{cartItems}</div>
+                       { <div onClick={() => cartState(!inCart)}><button>{inCart ? "Return to Shopping" : "Go to Cart"}</button></div>}
                     </div>
                 </div>
             </div>
