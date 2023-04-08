@@ -88,6 +88,7 @@ export const Shop = () => {
                             <span class="small text-muted me-2">Order total:</span>
                             <span class="lead fw-normal">${cartTotal}</span>
                         </p>
+                        <div>{cartItems}</div>
                     </div>
                 </div>
             </div>
