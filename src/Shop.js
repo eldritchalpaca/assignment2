@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import items from "./selected_products.json";
 
+
 export const Shop = () => {
     const [cart, setCart] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
     const [inCart, cartState] = useState(false);
     const [inCheckOut, checkOutState] = useState(false);
+    const [ProductsCategory, setProductsCategory] = useState(items);
+    const [query, setQuery] = useState('');
 
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
     
@@ -112,6 +115,19 @@ export const Shop = () => {
             </div>
         </div>
     ));
+
+    const handleChange = (e) => {
+        setQuery(e.target.value);
+        const results = ProductsCategory.filter(eachProduct => {
+            if (e.target.value === "") {
+                console.log('nothing');
+                return ProductsCategory;
+            }
+            console.log('change');
+            return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
+        });
+        setProductsCategory(results);
+    }
 
     function checkOut() {
         checkOutState(!inCheckOut);
@@ -329,6 +345,9 @@ export const Shop = () => {
                     {!inCheckOut && <div class="col-md-8 cart">
                         <div class="title">
                             <div class="row">
+                                <div className="py-10">
+                                    <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="search" value={query} onChange={handleChange} />
+                                </div>
                                 <div class="col">
                                     <h4>
                                         <b>319 Shopping Cart</b>
@@ -337,6 +356,7 @@ export const Shop = () => {
                                 <div class="col align-self-center text-right text-muted">
                                     Products selected {cart.length}
                                 </div>
+                                
                             </div>
                         </div>
 

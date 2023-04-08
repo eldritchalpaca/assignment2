@@ -72,11 +72,14 @@ const render_items = (itemsCategory) => {
               className="w-full h-full object-center object-cover lg:w-full lg:h-full"
             />
           </div>
-          <div onClick={() => {onClick()}}>
+          {
+          //this div is the add to cart button
+           <div onClick={() => {onClick()}}>
           <button className="inline-block bg-amber-600 rounded-full px-3 py-1
               text-sm font-semibold text-gray-700 mr-2 mt-2"
                 onClick={() => { onClick() }}>hello</button>
           </div>
+          }
           <div className="flex justify-between p-3">
           
             <div>
