@@ -4,6 +4,8 @@ import items from "./selected_products.json";
 export const Shop = () => {
     const [cart, setCart] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
+    const [inCart, cartState] = useState(false);
+    const [inCheckOut, checkOutState] = useState(false);
 
     useEffect(() => {
         total();
@@ -62,6 +64,17 @@ export const Shop = () => {
         </div>
     ));
 
+    function checkOut() {
+        checkOutState(!inCheckOut);
+        cartState(inCheckOut);
+        
+    }
+
+    function goToCart() {
+        cartState(!inCart);
+        checkOutState(false);
+    }
+
     return (
         <div>
             STORE SE/ComS319
@@ -81,14 +94,16 @@ export const Shop = () => {
                                 </div>
                             </div>
                         </div>
-                        <div>{listItems}</div>
+                        <div>{(!inCart && !inCheckOut) && listItems} {(inCart) && cartItems}</div>
                     </div>
                     <div class="float-end">
                         <p class="mb-0 me-5 d-flex align-items-center">
-                            <span class="small text-muted me-2">Order total:</span>
-                            <span class="lead fw-normal">${cartTotal}</span>
+                            {inCart && <span class="small text-muted me-2">Order total:</span>}
+                            {inCart && <span class="lead fw-normal">${cartTotal}</span>}
                         </p>
-                        <div>{cartItems}</div>
+                       { (!inCheckOut) && <div className="inline-block bg-gray-500 px-3 py-1 text-lg font-semibold mr-2 mt-2" onClick={() => goToCart()}><button>{inCart ? "Return to Shopping" : "Go to Cart"}</button></div>}
+                       { (inCart || inCheckOut) && <div className="inline-block bg-green-500 px-3 py-1 text-lg font-semibold mr-2 mt-2" onClick={() => checkOut()}><button>{inCart ? "Check Out" : "Return to Cart"}</button></div>}
+
                     </div>
                 </div>
             </div>
