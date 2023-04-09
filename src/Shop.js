@@ -10,12 +10,14 @@ export const Shop = () => {
     const [ProductsCategory, setProductsCategory] = useState(items);
     const [query, setQuery] = useState('');
 
-    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    const [orderComplete, orderState] = useState(false);
+
+    
     
     
     const alertTrigger = document.getElementById('submit-btn')
-    const summaryCard = document.querySelector('.card')
-    const summaryList = document.querySelector('.card > ul')
+    
+    
 
     useEffect(() => {
         total();
@@ -50,7 +52,8 @@ export const Shop = () => {
     }, [onSubmit]);
 
     function onSubmit() {
-/*         const form = document.getElementById('checkout-form')
+        const form = document.getElementById('checkout-form')
+        const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
         form.addEventListener('submit', event => {
             //if (!form.checkValidity()) {
             if (!validate()) {
@@ -60,7 +63,7 @@ export const Shop = () => {
             event.preventDefault()
             event.stopPropagation()
             //form.classList.add('was-validated')
-        }, false) */
+        }, false)
     }
 
     const total = () => {
@@ -129,15 +132,23 @@ export const Shop = () => {
         setProductsCategory(results);
     }
 
+    function goToShopping() {
+        checkOutState(false);
+        cartState(false);
+        orderState(false);
+    }
+
     function checkOut() {
         checkOutState(!inCheckOut);
         cartState(inCheckOut);
+        orderState(false);
 
     }
 
     function goToCart() {
         cartState(!inCart);
         checkOutState(false);
+        orderState(false);
     }
 
     let validate = function () {
@@ -146,6 +157,9 @@ export const Shop = () => {
         let name = document.getElementById('inputName')
         let card = document.getElementById('inputCard')
         const form = document.getElementById('checkout-form')
+        const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+        const summaryList = document.querySelector('.card > ul')
+        const summaryCard = document.querySelector('.card')
 
         if (!email.value.match(
             /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -185,6 +199,7 @@ export const Shop = () => {
             summaryCard.classList.remove("collapse")
             alertPlaceholder.innerHTML = ""
             alert('<i class="bi-cart-check-fill"></i> You have made an order!', 'success')
+            orderState(true);
         }
         return val;
     }
@@ -197,6 +212,7 @@ export const Shop = () => {
 
     const alert = (message, type) => {
         const wrapper = document.createElement('div')
+        const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
         wrapper.innerHTML = [
             `<div class="alert alert-${type} alert-dismissible" role="alert">`,
             ` <div>${message}</div>`,
@@ -373,34 +389,12 @@ export const Shop = () => {
                             {<span class="lead fw-normal">${cartTotal}</span>}
                         </p>}
                     </div>}
-
-                    {inCheckOut && <div>
-                        testing
-                    </div>}
-
                 </div>
             </div>
-            {(!inCheckOut) && <div className="inline-block bg-gray-500 px-3 py-1 text-lg font-semibold mr-2 mt-2" onClick={() => goToCart()}><button>{inCart ? "Return to Shopping" : "Go to Cart"}</button></div>}
-            {(inCart || inCheckOut) && <div className="inline-block bg-green-500 px-3 py-1 text-lg font-semibold mr-2 mt-2" onClick={() => checkOut()}><button>{inCart ? "Check Out" : "Return to Cart"}</button></div>}
+            {(!inCheckOut && !orderComplete) && <div className="inline-block bg-gray-500 px-3 py-1 text-lg font-semibold mr-2 mt-2" onClick={() => goToCart()}><button>{inCart ? "Return to Shopping" : "Go to Cart"}</button></div>}
+            {(inCart || inCheckOut) && !orderComplete && <div className="inline-block bg-green-500 px-3 py-1 text-lg font-semibold mr-2 mt-2" onClick={() => checkOut()}><button>{inCart ? "Check Out" : "Return to Cart"}</button></div>}
+            {orderComplete && <div className="inline-block bg-red-500 px-3 py-1 text-lg font-semibold mr-2 mt-2" onClick={() => goToShopping()}><button>Return to Shopping</button></div>}
         </div>
     );
 };
 export default Shop;
-
-const CheckOut = () => {
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-    return;
-};
