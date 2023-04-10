@@ -58,7 +58,7 @@ export const Shop = () => {
             //if (!form.checkValidity()) {
             if (!validate()) {
                 alertPlaceholder.innerHTML = ''
-                alert('<i class="bi-exclamation-circle"></i> Something went wrong!', 'danger')
+                alert('<i className="bi-exclamation-circle"></i> Something went wrong!', 'danger')
             }
             event.preventDefault()
             event.stopPropagation()
@@ -91,7 +91,7 @@ export const Shop = () => {
 
     const cartItems = cart.map((el) => (
         <div key={el.id}>
-            <img class="img-fluid" src={el.image} width={30} />
+            <img className="img-fluid" src={el.image} width={30} />
             {el.title}
             ${el.price}
         </div>
@@ -99,21 +99,21 @@ export const Shop = () => {
 
     const listItems = items.map((el) => (
         // PRODUCT
-        <div class="row border-top border-bottom" key={el.id}>
-            <div class="row main align-items-center">
-                <div class="col-2">
-                    <img class="img-fluid" src={el.image} />
+        <div className="row border-top border-bottom" key={el.id}>
+            <div className="row main align-items-center">
+                <div className="col-2">
+                    <img className="img-fluid" src={el.image} />
                 </div>
-                <div class="col">
-                    <div class="row text-muted">{el.title}</div>
-                    <div class="row">{el.category}</div>
+                <div className="col">
+                    <div className="row text-muted">{el.title}</div>
+                    <div className="row">{el.category}</div>
                 </div>
-                <div class="col">
+                <div className="col">
                     <button type="button" variant="light" onClick={() => removeFromCart(el)} > - </button>{" "}
                     <button type="button" variant="light" onClick={() => addToCart(el)}> + </button>
                 </div>
-                <div class="col">
-                    ${el.price} <span class="close">&#10005;</span>{howManyofThis(el.id)}
+                <div className="col">
+                    ${el.price} <span className="close">&#10005;</span>{howManyofThis(el.id)}
                 </div>
             </div>
         </div>
@@ -194,11 +194,11 @@ export const Shop = () => {
             form.classList.add("collapse")
 
             for (const [key, value] of Object.entries(order)) {
-                summaryList.innerHTML += '<li class="list-group-item"> <b>' + `${key}` + ': </b>' + `${value}` + '</li>'
+                summaryList.innerHTML += '<li className="list-group-item"> <b>' + `${key}` + ': </b>' + `${value}` + '</li>'
             }
             summaryCard.classList.remove("collapse")
             alertPlaceholder.innerHTML = ""
-            alert('<i class="bi-cart-check-fill"></i> You have made an order!', 'success')
+            alert('<i className="bi-cart-check-fill"></i> You have made an order!', 'success')
             orderState(true);
         }
         return val;
@@ -214,9 +214,9 @@ export const Shop = () => {
         const wrapper = document.createElement('div')
         const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
         wrapper.innerHTML = [
-            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+            `<div className="alert alert-${type} alert-dismissible" role="alert">`,
             ` <div>${message}</div>`,
-            ' <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+            ' <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
             '</div>'
         ].join('')
         alertPlaceholder.append(wrapper)
@@ -229,43 +229,43 @@ export const Shop = () => {
     return (
         <div>
             STORE SE/ComS319
-            <div class="card">
-                <div class="row">
+            <div className="card">
+                <div className="row">
 
-                    {inCheckOut && <div>  <div class="container">
+                    {inCheckOut && <div>  <div className="container">
 
-                        <div class="row">
-                            <div class="col-2"></div>
+                        <div className="row">
+                            <div className="col-2"></div>
 
 
-                            <div class="col-8">
+                            <div className="col-8">
 
                                 <h1>Javascript Form Validation</h1>
 
                                 <div id="liveAlertPlaceholder"></div>
 
-                                <form class="row g-3" id="checkout-form">
+                                <form className="row g-3" id="checkout-form">
 
                                     {/* Full Name */}
-                                    <div class="col-md-6">
-                                        <label for="inputName" class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" id="inputName"></input>
-                                        <div class="valid-feedback">
+                                    <div className="col-md-6">
+                                        <label for="inputName" className="form-label">Full Name</label>
+                                        <input type="text" className="form-control" id="inputName"></input>
+                                        <div className="valid-feedback">
                                             Looks good!
                                         </div>
-                                        <div class="invalid-feedback">
+                                        <div className="invalid-feedback">
                                             Must be like, "John Doe"
                                         </div>
                                     </div>
 
                                     {/* <!-- Email --> */}
-                                    <div class="col-md-6">
-                                        <label for="inputEmail4" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="inputEmail4"></input>
-                                        <div class="valid-feedback">
+                                    <div className="col-md-6">
+                                        <label for="inputEmail4" className="form-label">Email</label>
+                                        <input type="email" className="form-control" id="inputEmail4"></input>
+                                        <div className="valid-feedback">
                                             Looks good!
                                         </div>
-                                        <div class="invalid-feedback">
+                                        <div className="invalid-feedback">
                                             Must be like, "abc@xyz.efg"
                                         </div>
                                     </div>
@@ -273,74 +273,74 @@ export const Shop = () => {
                                     
 
                                     {/* <!-- Credit Card --> */}
-                                    <div class="col-12">
-                                        <label for="inputCard" class="form-label">Card</label>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i class="bi-credit-card-fill"></i></span>
-                                            <input   onChange={() => inputCardChange()} type="text" id="inputCard" class="form-control" placeholder="XXXX-XXXX-XXXX-XXXX"
+                                    <div className="col-12">
+                                        <label for="inputCard" className="form-label">Card</label>
+                                        <div className="input-group mb-3">
+                                            <span className="input-group-text" id="basic-addon1"><i className="bi-credit-card-fill"></i></span>
+                                            <input   onChange={() => inputCardChange()} type="text" id="inputCard" className="form-control" placeholder="XXXX-XXXX-XXXX-XXXX"
                                                 aria-label="Username" aria-describedby="basic-addon1"></input>
-                                            <div class="valid-feedback">
+                                            <div className="valid-feedback">
                                                 Looks good!
                                             </div>
-                                            <div class="invalid-feedback">
+                                            <div className="invalid-feedback">
                                                 Must be like, "7777-7777-7777-7777"
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-12">
-                                        <label for="inputAddress" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"></input>
+                                    <div className="col-12">
+                                        <label for="inputAddress" className="form-label">Address</label>
+                                        <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St"></input>
                                     </div>
-                                    <div class="col-12">
-                                        <label for="inputAddress2" class="form-label">Address 2</label>
-                                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"></input>
+                                    <div className="col-12">
+                                        <label for="inputAddress2" className="form-label">Address 2</label>
+                                        <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"></input>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="inputCity" class="form-label">City</label>
-                                        <input type="text" class="form-control" id="inputCity"></input>
+                                    <div className="col-md-6">
+                                        <label for="inputCity" className="form-label">City</label>
+                                        <input type="text" className="form-control" id="inputCity"></input>
                                     </div>
-                                    <div class="col-md-4">
-                                        <label for="inputState" class="form-label">State</label>
-                                        <select id="inputState" class="form-select">
+                                    <div className="col-md-4">
+                                        <label for="inputState" className="form-label">State</label>
+                                        <select id="inputState" className="form-select">
                                             <option selected>Choose...</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-2">
-                                        <label for="inputZip" class="form-label">Zip</label>
-                                        <input type="text" class="form-control" id="inputZip"></input>
+                                    <div className="col-md-2">
+                                        <label for="inputZip" className="form-label">Zip</label>
+                                        <input type="text" className="form-control" id="inputZip"></input>
                                     </div>
-                                    <div class="col-12">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="gridCheck"></input>
-                                            <label class="form-check-label" for="gridCheck">
+                                    <div className="col-12">
+                                        <div className="form-check">
+                                            <input className="form-check-input" type="checkbox" id="gridCheck"></input>
+                                            <label className="form-check-label" for="gridCheck">
                                                 Check me out
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-success" onClick={() => onSubmit()}> <i class="bi-bag-check"></i> Order</button>
+                                    <div className="col-12">
+                                        <button type="submit" className="btn btn-success" onClick={() => onSubmit()}> <i className="bi-bag-check"></i> Order</button>
                                     </div>
                                 </form>
 
 
-                                <div class="card collapse" /* style="width: 18rem;" */>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Order summary</h5>
-                                        <p class="card-text">Here is a summary of your order.</p>
+                                <div className="card collapse" /* style="width: 18rem;" */>
+                                    <div className="card-body">
+                                        <h5 className="card-title">Order summary</h5>
+                                        <p className="card-text">Here is a summary of your order.</p>
                                     </div>
-                                    <ul class="list-group list-group-flush">
+                                    <ul className="list-group list-group-flush">
 
                                     </ul>
-                                    <a href="" onClick="location.reload()" class="btn btn-secondary"> <i class="bi-arrow-left-circle"></i>
+                                    <a href="" onClick="location.reload()" className="btn btn-secondary"> <i className="bi-arrow-left-circle"></i>
                                         Return</a>
                                 </div>
 
 
-                                <footer class="bd-footer py-4 py-md-5 mt-5 bg-light">
-                                    <div class="container py-4 py-md-5 px-4 px-md-3">
-                                        <div class="row">
-                                            <div class="col-lg-12 mb-3">
+                                <footer className="bd-footer py-4 py-md-5 mt-5 bg-light">
+                                    <div className="container py-4 py-md-5 px-4 px-md-3">
+                                        <div className="row">
+                                            <div className="col-lg-12 mb-3">
                                                 <b>SE/Com-S 319</b> Javascript form validation.
                                             </div>
 
@@ -350,7 +350,7 @@ export const Shop = () => {
 
                             </div>
 
-                            <div class="col-2"></div>
+                            <div className="col-2"></div>
 
 
                         </div>
@@ -358,18 +358,18 @@ export const Shop = () => {
                     </div></div>}
 
                     {/* HERE, IT IS THE SHOPING CART */}
-                    {!inCheckOut && <div class="col-md-8 cart">
-                        <div class="title">
-                            <div class="row">
+                    {!inCheckOut && <div className="col-md-8 cart">
+                        <div className="title">
+                            <div className="row">
                                 <div className="py-10">
                                     <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="search" value={query} onChange={handleChange} />
                                 </div>
-                                <div class="col">
+                                <div className="col">
                                     <h4>
                                         <b>319 Shopping Cart</b>
                                     </h4>
                                 </div>
-                                <div class="col align-self-center text-right text-muted">
+                                <div className="col align-self-center text-right text-muted">
                                     Products selected {cart.length}
                                 </div>
                                 
@@ -383,10 +383,10 @@ export const Shop = () => {
 
                     </div>}
 
-                    {inCart && <div class="float-end">
-                        {<p class="mb-0 me-5 d-flex align-items-center">
-                            {<span class="small text-muted me-2">Order total:</span>}
-                            {<span class="lead fw-normal">${cartTotal}</span>}
+                    {inCart && <div className="float-end">
+                        {<p className="mb-0 me-5 d-flex align-items-center">
+                            {<span className="small text-muted me-2">Order total:</span>}
+                            {<span className="lead fw-normal">${cartTotal}</span>}
                         </p>}
                     </div>}
                 </div>
