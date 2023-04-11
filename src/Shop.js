@@ -130,6 +130,7 @@ export const Shop = () => {
             return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
         });
         setProductsCategory(results);
+        render_products(ProductsCategory);
     }
 
     function goToShopping() {
@@ -225,6 +226,29 @@ export const Shop = () => {
     function isNumeric(n) {
         return !isNaN(parseFloat(n)) && isFinite(n)
     }
+
+      //Here it goes a map to construct the catalog:
+  const render_products = (ProductsCategory) => {
+
+    return <div className="col-md-8 cart">
+    <div className="title">
+        <div className="row">
+            <div className="py-10">
+                <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="search" value={query} onChange={handleChange} />
+            </div>
+            <div className="col">
+                <h4>
+                    <b>319 Shopping Cart</b>
+                </h4>
+            </div>
+            <div className="col align-self-center text-right text-muted">
+                Products selected {cart.length}
+            </div>
+            
+        </div>
+    </div>
+    </div>
+  }
 
     return (
         <div>
@@ -357,7 +381,7 @@ export const Shop = () => {
 
                     </div></div>}
 
-                    {/* HERE, IT IS THE SHOPING CART */}
+                    {/* HERE, IT IS THE SHOPPING CART */}
                     {!inCheckOut && <div className="col-md-8 cart">
                         <div className="title">
                             <div className="row">
@@ -372,13 +396,18 @@ export const Shop = () => {
                                 <div className="col align-self-center text-right text-muted">
                                     Products selected {cart.length}
                                 </div>
-                                
+                                <div className="ml-5  p-10 xl:basis-4/5">
+                            </div>
                             </div>
                         </div>
 
                         <div>
                             {(!inCart && !inCheckOut) && listItems}
                             {(inCart) && cartItems}
+                        </div>
+
+                        <div className="ml-5  p-10 xl:basis-4/5">
+                            {render_products(ProductsCategory)}
                         </div>
 
                     </div>}
