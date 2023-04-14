@@ -8,7 +8,6 @@ export const Shop = () => {
     const [inCart, cartState] = useState(false);
     const [inCheckOut, checkOutState] = useState(false);
     const [ProductsCategory, setProductsCategory] = useState(items);
-    const AllProducts = items;
     const [query, setQuery] = useState('');
 
     const [orderComplete, orderState] = useState(false);
@@ -97,28 +96,6 @@ export const Shop = () => {
     ));
 
     let listItems = ProductsCategory.map((el) => (
-        // PRODUCT
-        <div className="row border-top border-bottom" key={el.id}>
-            <div className="row main align-items-center">
-                <div className="col-2">
-                    <img className="img-fluid" src={el.image} />
-                </div>
-                <div className="col">
-                    <div className="row text-muted">{el.title}</div>
-                    <div className="row">{el.category}</div>
-                </div>
-                <div className="col">
-                    <button type="button" variant="light" onClick={() => removeFromCart(el)} > - </button>{" "}
-                    <button type="button" variant="light" onClick={() => addToCart(el)}> + </button>
-                </div>
-                <div className="col">
-                    ${el.price} <span className="close">&#10005;</span>{howManyofThis(el.id)}
-                </div>
-            </div>
-        </div>
-    ));
-
-    const listItemsFull = AllProducts.map((el) => (
         // PRODUCT
         <div className="row border-top border-bottom" key={el.id}>
             <div className="row main align-items-center">
@@ -351,7 +328,7 @@ export const Shop = () => {
 
                                 <div className="card collapse" /* style="width: 18rem;" */>
                                     <div className="card-body">
-                                        <h5 className="card-title">Order summary</h5>
+                                        <h5 className="card-title">Order summary:</h5>
                                         <p className="card-text">Here is a summary of your order.</p>
                                     </div>
                                     <ul className="list-group list-group-flush">
@@ -387,7 +364,7 @@ export const Shop = () => {
                     <div className="title">
                             <div className="row">
                                 <div className="py-10">
-                                    <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="search" value={query} onChange={handleChange} />
+                                {(!inCheckOut && !orderComplete && !inCart) && <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="search" value={query} onChange={handleChange} />}
                                 </div>
                                 <div className="col">
                                     <h4>
@@ -395,7 +372,7 @@ export const Shop = () => {
                                     </h4>
                                 </div>
                                 <div className="col align-self-center text-right text-muted">
-                                    Products selected {cart.length}
+                                    Products selected: {cart.length}
                                 </div>
                                 <div className="ml-5  p-10 xl:basis-4/5">
                             </div>
