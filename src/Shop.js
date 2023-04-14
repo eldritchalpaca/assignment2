@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import items from "./selected_products.json";
+import './Shop.css';
 
 
 export const Shop = () => {
@@ -12,7 +13,14 @@ export const Shop = () => {
 
     const [orderComplete, orderState] = useState(false);
     
-    
+
+    // window.addEventListener("load", () => {
+    //     document.body.classList.add("min-h-screen");
+    //     document.body.classList.add(" bg-red-300");
+    //   });
+
+    document.body.style.backgroundColor = "pink";
+
     const alertTrigger = document.getElementById('submit-btn')
     
     
@@ -89,7 +97,7 @@ export const Shop = () => {
 
     const cartItems = cart.map((el) => (
         <div key={el.id}>
-            <img className="img-fluid" src={el.image} width={30} />
+            <img className="img-fluid bg-red-300" src={el.image} width={30} />
             {el.title}
             ${el.price}
         </div>
@@ -97,21 +105,21 @@ export const Shop = () => {
 
     let listItems = ProductsCategory.map((el) => (
         // PRODUCT
-        <div className="row border-top border-bottom" key={el.id}>
-            <div className="row main align-items-center">
-                <div className="col-2">
-                    <img className="img-fluid" src={el.image} />
+        <div className="row border-top border-bottom bg-red-300" key={el.id}>
+            <div className="row main align-items-center bg-red-300">
+                <div className="col-2 bg-red-300">
+                    <img className="img-fluid bg-red-300" src={el.image} />
                 </div>
-                <div className="col">
-                    <div className="row text-muted">{el.title}</div>
-                    <div className="row">{el.category}</div>
+                <div className="col bg-red-300">
+                    <div className="row text-muted bg-red-300">{el.title}</div>
+                    <div className="row bg-red-300">{el.category}</div>
                 </div>
-                <div className="col">
+                <div className="col bg-red-300">
                     <button type="button" variant="light" onClick={() => removeFromCart(el)} > - </button>{" "}
                     <button type="button" variant="light" onClick={() => addToCart(el)}> + </button>
                 </div>
-                <div className="col">
-                    ${el.price} <span className="close">&#10005;</span>{howManyofThis(el.id)}
+                <div className="col bg-red-300">
+                    ${el.price} <span className="close bg-red-300">&#10005;</span>{howManyofThis(el.id)}
                 </div>
             </div>
         </div>
@@ -236,6 +244,8 @@ export const Shop = () => {
 
                     {inCheckOut && <div>  <div className="container">
 
+                        
+
                         <div className="row">
                             <div className="col-2"></div>
 
@@ -250,7 +260,7 @@ export const Shop = () => {
 
                                     {/* Full Name */}
                                     <div className="col-md-6">
-                                        <label for="inputName" className="form-label">Full Name</label>
+                                        <label for="inputName" className="form-label" class="required">Full Name</label>
                                         <input type="text" className="form-control" id="inputName"></input>
                                         <div className="valid-feedback">
                                             Looks good!
@@ -262,7 +272,7 @@ export const Shop = () => {
 
                                     {/* <!-- Email --> */}
                                     <div className="col-md-6">
-                                        <label for="inputEmail4" className="form-label">Email</label>
+                                        <label for="inputEmail4" className="form-label" class="required">Email</label>
                                         <input type="email" className="form-control" id="inputEmail4"></input>
                                         <div className="valid-feedback">
                                             Looks good!
@@ -276,7 +286,7 @@ export const Shop = () => {
 
                                     {/* <!-- Credit Card --> */}
                                     <div className="col-12">
-                                        <label for="inputCard" className="form-label">Card</label>
+                                        <label for="inputCard" className="form-label" class="required">Card</label>
                                         <div className="input-group mb-3">
                                             <span className="input-group-text" id="basic-addon1"><i className="bi-credit-card-fill"></i></span>
                                             <input   onChange={() => inputCardChange()} type="text" id="inputCard" className="form-control" placeholder="XXXX-XXXX-XXXX-XXXX"
@@ -321,7 +331,7 @@ export const Shop = () => {
                                         </div>
                                     </div>
                                     <div className="col-12">
-                                        <button type="submit" className="btn btn-success" onClick={() => onSubmit()}> <i className="bi-bag-check"></i> Order</button>
+                                        <button type="submit" className="btn btn-success" onClick={() => onSubmit()}> <i className="bi bi-bag-check"></i>Order</button>
                                     </div>
                                 </form>
 
