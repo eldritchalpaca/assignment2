@@ -1,4 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .required::after {
     content: "*";
     color: red;
+}
+
+body {
+    font-family: "Times", sans-serif;
+    font-size: 16px;
+}
+
+* {
+    background-color: aquamarine; /*testing a contrasting color to see if it shows up*/
 }
