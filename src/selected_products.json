@@ -50,7 +50,7 @@
       "price": 200,
       "description": "A spray-type medicine for treating paralysis. It can be used to free a single Pokémon that has been paralyzed.",
       "category": "medicine",
-      "image": "/images/paralyze_healpoke_ball.png",
+      "image": "/images/paralyze_heal.png",
       "rating": { "rate": 3.9, "count": 70 }
     },
     {
