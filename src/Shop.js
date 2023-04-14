@@ -8,11 +8,10 @@ export const Shop = () => {
     const [inCart, cartState] = useState(false);
     const [inCheckOut, checkOutState] = useState(false);
     const [ProductsCategory, setProductsCategory] = useState(items);
+    const AllProducts = items;
     const [query, setQuery] = useState('');
 
     const [orderComplete, orderState] = useState(false);
-
-    
     
     
     const alertTrigger = document.getElementById('submit-btn')
@@ -97,7 +96,29 @@ export const Shop = () => {
         </div>
     ));
 
-    const listItems = ProductsCategory.map((el) => (
+    let listItems = ProductsCategory.map((el) => (
+        // PRODUCT
+        <div className="row border-top border-bottom" key={el.id}>
+            <div className="row main align-items-center">
+                <div className="col-2">
+                    <img className="img-fluid" src={el.image} />
+                </div>
+                <div className="col">
+                    <div className="row text-muted">{el.title}</div>
+                    <div className="row">{el.category}</div>
+                </div>
+                <div className="col">
+                    <button type="button" variant="light" onClick={() => removeFromCart(el)} > - </button>{" "}
+                    <button type="button" variant="light" onClick={() => addToCart(el)}> + </button>
+                </div>
+                <div className="col">
+                    ${el.price} <span className="close">&#10005;</span>{howManyofThis(el.id)}
+                </div>
+            </div>
+        </div>
+    ));
+
+    const listItemsFull = AllProducts.map((el) => (
         // PRODUCT
         <div className="row border-top border-bottom" key={el.id}>
             <div className="row main align-items-center">
@@ -121,9 +142,11 @@ export const Shop = () => {
 
     const handleChange = (e) => {
         setQuery(e.target.value);
-        const results = ProductsCategory.filter(eachProduct => {
+        const results = items.filter(eachProduct => {
             if (e.target.value === "") {
                 console.log('nothing');
+                setProductsCategory(items);
+                console.log(items);
                 return ProductsCategory;
             }
             console.log('change');
