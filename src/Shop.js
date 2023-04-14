@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import items from "./selected_products.json";
 import './Shop.css';
+import './images/antidote.png';
 
 
 export const Shop = () => {
@@ -108,7 +109,7 @@ export const Shop = () => {
         <div className="row border-top border-bottom bg-red-300" key={el.id}>
             <div className="row main align-items-center bg-red-300">
                 <div className="col-2 bg-red-300">
-                    <img className="img-fluid bg-red-300" src={el.image} />
+                    <img className="img-fluid bg-red-300" src= {process.env.PUBLIC_URL + el.image} ></img>
                 </div>
                 <div className="col bg-red-300">
                     <div className="row text-muted bg-red-300">{el.title}</div>
