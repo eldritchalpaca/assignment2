@@ -98,7 +98,7 @@ export const Shop = () => {
 
     const cartItems = cart.map((el) => (
         <div key={el.id}>
-            <img className="img-fluid bg-red-300" src={el.image} width={30} />
+            <img className="img-fluid bg-red-300" src= {process.env.PUBLIC_URL + el.image} width={30} />
             {el.title}
             ${el.price}
         </div>
