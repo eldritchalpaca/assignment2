@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import items from "./selected_products.json";
 import './Shop.css';
-import './images/antidote.png';
 
 
 export const Shop = () => {
