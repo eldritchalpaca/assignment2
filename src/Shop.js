@@ -76,6 +76,8 @@ export const Shop = () => {
         for (let i = 0; i < cart.length; i++) {
             totalVal += cart[i].price;
         }
+        totalVal += totalVal * 0.069;
+        totalVal = totalVal.toFixed(2);
         setCartTotal(totalVal);
     };
 
@@ -258,7 +260,7 @@ export const Shop = () => {
                             <div className="col-8" id="margin-wrangler">
 
 
-                                {/* <div id="liveAlertPlaceholder"></div> */}
+                                <div id="liveAlertPlaceholder"></div>
 
                                 <form className="row g-3" id="checkout-form">
 
@@ -357,11 +359,11 @@ export const Shop = () => {
                                 </div>
 
 
-                                <footer className="bd-footer py-4 py-md-5 mt-5 bg-light">
+                                <footer className="bd-footer py-4 py-md-5 mt-5">
                                     <div className="container py-4 py-md-5 px-4 px-md-3">
                                         <div className="row">
                                             <div className="col-lg-12 mb-3">
-                                                <b>SE/Com-S 319</b> Javascript form validation.
+                                                {cartItems}
                                             </div>
 
                                         </div>
