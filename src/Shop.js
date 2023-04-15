@@ -173,7 +173,7 @@ export const Shop = () => {
         const form = document.getElementById('checkout-form')
         const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
         const summaryList = document.querySelector('.card > ul')
-        const summaryCard = document.querySelector('.card')
+        const summaryCard = document.getElementById('orderSummary')
 
         if (!email.value.match(
             /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -350,16 +350,18 @@ export const Shop = () => {
                                 </form>
 
 
-                                <div className="card collapse" /* style="width: 18rem;" */>
+                                <div className="card collapse" id="orderSummary" /* style="width: 18rem;" */>
                                     <div className="card-body">
                                         <h5 className="card-title">Order summary:</h5>
-                                        <p className="card-text">Here is a summary of your order.</p>
+                                        <p>{cartItems}</p>
+                                        <p>Order total: ${cartTotal}</p>
+                                        {/* <p className="card-text">Here is a summary of your order.</p> */}
                                     </div>
                                     <ul className="list-group list-group-flush">
 
                                     </ul>
-                                    <a href="" onClick="location.reload()" className="btn btn-secondary"> <i className="bi-arrow-left-circle"></i>
-                                        Return</a>
+                              {/*       <a href=" " onClick="location.reload()" className="btn btn-secondary"> <i className="bi-arrow-left-circle"></i>
+                                        Return</a> */}
                                 </div>
 
 
@@ -367,7 +369,6 @@ export const Shop = () => {
                                     <div className="container py-4 py-md-5 px-4 px-md-3">
                                         <div className="row">
                                             <div className="col-lg-12 mb-3">
-                                                {cartItems}
                                             </div>
 
                                         </div>
