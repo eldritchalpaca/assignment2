@@ -146,7 +146,7 @@ export const Shop = () => {
     }
 
     function goToShopping() {
-        clearCart;
+        clearCart();
         checkOutState(false);
         cartState(false);
         orderState(false);
