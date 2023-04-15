@@ -104,10 +104,10 @@ export const Shop = () => {
 
     let listItems = ProductsCategory.map((el) => (
         // PRODUCT
-        <div className="row border-top border-bottom bulba-green" key={el.id}>
-            <div className="row main align-items-center bulba-green">
-                <div className="col-2 bulba-green">
-                    <img className="img-fluid bulba-green" src= {process.env.PUBLIC_URL + el.image} ></img>
+        <div className="row border-top border-bottom bg-red-300" key={el.id}>
+            <div className="row main align-items-center bg-red-300">
+                <div className="col-2 bg-red-300">
+                    <img className="img-fluid bg-red-300" src={el.image} />
                 </div>
                 <div className="col bulba-green">
                     <div className="row text-muted bulba-green">{el.title}</div>
