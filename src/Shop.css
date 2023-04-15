@@ -18,6 +18,22 @@ body {
     border-color: #31aa31;
 }
 
+.cart-title {
+    color: #31aa31;
+    font-family: "Papyrus";
+}
+
+.navbar {
+    background-color: #02022c;
+}
+
+.navtitle {
+    background-color: #02022c;
+    color: white;
+    font-size: x-large;
+    font-family: Georgia, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
 * {
     background-color: #edf7f7;
 }

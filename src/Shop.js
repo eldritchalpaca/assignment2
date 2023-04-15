@@ -104,10 +104,10 @@ export const Shop = () => {
 
     let listItems = ProductsCategory.map((el) => (
         // PRODUCT
-        <div className="row border-top border-bottom bg-red-300" key={el.id}>
-            <div className="row main align-items-center bg-red-300">
-                <div className="col-2 bg-red-300">
-                    <img className="img-fluid bg-red-300" src={el.image} />
+        <div className="row border-top border-bottom bulba-green" key={el.id}>
+            <div className="row main align-items-center bulba-green">
+                <div className="col-2 bulba-green">
+                    <img className="img-fluid bulba-green" src={el.image} />
                 </div>
                 <div className="col bulba-green">
                     <div className="row text-muted bulba-green">{el.title}</div>
@@ -237,7 +237,13 @@ export const Shop = () => {
 
     return (
         <div>
-            STORE SE/ComS319
+    <div>
+        <nav class="navbar">
+                <h1 class="navtitle">COM S 319 Assignment #2!</h1>
+        </nav>
+    </div>
+
+
             <div className="card">
                 <div className="row">
 
@@ -251,7 +257,7 @@ export const Shop = () => {
 
                             <div className="col-8">
 
-                                <h1>Javascript Form Validation</h1>
+                                <h1 class="cart-title"><center><b>Form Validation</b></center></h1>
 
                                 <div id="liveAlertPlaceholder"></div>
 
@@ -373,15 +379,15 @@ export const Shop = () => {
                     <div className="title">
                             <div className="row">
                                 <div className="py-10">
-                                {(!inCheckOut && !orderComplete && !inCart) && <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="search" value={query} onChange={handleChange} />}
+                                {(!inCheckOut && !orderComplete && !inCart) && <input placeholder="Type to Search..." className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="search" value={query} onChange={handleChange} />}
                                 </div>
                                 <div className="col">
-                                    <h4>
-                                        <b>319 Shopping Cart</b>
-                                    </h4>
+                                    <h2 class="cart-title">
+                                        <b>Pokémon Shopping Cart</b>
+                                    </h2>
                                 </div>
-                                <div className="col align-self-center text-right text-muted">
-                                    Products selected: {cart.length}
+                                <div className="col align-self-center text-right text-muted cart-title">
+                                    <b>Products selected: {cart.length}</b>
                                 </div>
                                 <div className="ml-5  p-10 xl:basis-4/5">
                             </div>
