@@ -265,7 +265,7 @@ export const Shop = () => {
                                     {/* Full Name */}
                                     <div className="col-md-6">
                                         <label for="inputName" className="form-label" class="required">Full Name</label>
-                                        <input type="text" className="form-control" id="inputName"></input>
+                                        <input type="text" className="form-control" id="inputName" required></input>
                                         <div className="valid-feedback">
                                             Looks good!
                                         </div>
@@ -277,7 +277,7 @@ export const Shop = () => {
                                     {/* <!-- Email --> */}
                                     <div className="col-md-6">
                                         <label for="inputEmail4" className="form-label" class="required">Email</label>
-                                        <input type="email" className="form-control" id="inputEmail4"></input>
+                                        <input type="email" className="form-control" id="inputEmail4" required></input>
                                         <div className="valid-feedback">
                                             Looks good!
                                         </div>
@@ -294,7 +294,7 @@ export const Shop = () => {
                                         <div className="input-group mb-3">
                                             <span className="input-group-text" id="basic-addon1"><i className="bi-credit-card-fill"></i></span>
                                             <input   onChange={() => inputCardChange()} type="text" id="inputCard" className="form-control" placeholder="XXXX-XXXX-XXXX-XXXX"
-                                                aria-label="Username" aria-describedby="basic-addon1"></input>
+                                                aria-label="Username" aria-describedby="basic-addon1" required></input>
                                             <div className="valid-feedback">
                                                 Looks good!
                                             </div>
@@ -305,20 +305,20 @@ export const Shop = () => {
                                     </div>
 
                                     <div className="col-12">
-                                        <label for="inputAddress" className="form-label">Address</label>
-                                        <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St"></input>
+                                        <label for="inputAddress" className="form-label" class="required">Address</label>
+                                        <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" required></input>
                                     </div>
                                     <div className="col-12">
-                                        <label for="inputAddress2" className="form-label">Address 2</label>
-                                        <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"></input>
+                                        <label for="inputAddress2" className="form-label" class="required">Address 2</label>
+                                        <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required></input>
                                     </div>
                                     <div className="col-md-6">
-                                        <label for="inputCity" className="form-label">City</label>
-                                        <input type="text" className="form-control" id="inputCity"></input>
+                                        <label for="inputCity" className="form-label" class="required">City</label>
+                                        <input type="text" className="form-control" id="inputCity" required></input>
                                     </div>
                                     <div className="col-md-4">
-                                        <label for="inputState" className="form-label">Region</label>
-                                        <select id="inputState" className="form-select" placeholder="Choose...">
+                                        <label for="inputState" className="form-label" class="required">Region</label>
+                                        <select id="inputState" className="form-select" placeholder="Choose..." required>
                                             <option selected>Kanto</option>
                                             <option selected>Unova</option>
                                             <option selected>Kalos</option>
@@ -327,17 +327,16 @@ export const Shop = () => {
                                         </select>
                                     </div>
                                     <div className="col-md-2">
-                                        <label for="inputZip" className="form-label">Zip</label>
-                                        <input type="text" className="form-control" id="inputZip"></input>
-                                    </div>
-                                    <div className="col-12">
-                                        <div className="form-check">
-                                            <input className="form-check-input" type="checkbox" id="gridCheck"></input>
-                                            <label className="form-check-label" for="gridCheck">
-                                                Check me out
-                                            </label>
+                                        <label for="inputZip" className="form-label" class="required">Zip</label>
+                                        <input type="text" className="form-control" id="inputZip" pattern="[0-9]{5}" required></input>
+                                        <div className="valid-feedback">
+                                                Looks good!
+                                        </div>
+                                        <div className="invalid-feedback">
+                                                Must be a five-digit number.
                                         </div>
                                     </div>
+                                    
                                     <div className="col-12">
                                         <button type="submit" className="btn btn-success" onClick={() => onSubmit()}> <i className="bi bi-bag-check"></i>Order</button>
                                     </div>
