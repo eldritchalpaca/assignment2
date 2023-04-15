@@ -113,7 +113,7 @@ export const Shop = () => {
         <div className="row border-top border-bottom bulba-green margin-lefter" key={el.id}>
             <div className="row main align-items-center bulba-green">
                 <div className="col-2 bulba-green">
-                    <img className="img-fluid bulba-green" src={el.image} />
+                    <img className="img-fluid bulba-green" src={process.env.PUBLIC_URL + el.image}/>
                 </div>
                 <div className="col bulba-green">
                     <div className="row text-muted bulba-green">{el.title}</div>
