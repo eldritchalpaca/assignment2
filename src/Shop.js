@@ -91,6 +91,10 @@ export const Shop = () => {
         setCart(hardCopy);
     };
 
+    const clearCart = () => {
+        setCart([]);
+    };
+
     function howManyofThis(id) {
         let hmot = cart.filter((cartItem) => cartItem.id === id);
         return hmot.length;
@@ -142,6 +146,7 @@ export const Shop = () => {
     }
 
     function goToShopping() {
+        clearCart;
         checkOutState(false);
         cartState(false);
         orderState(false);
