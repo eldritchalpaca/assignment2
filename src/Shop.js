@@ -318,9 +318,13 @@ export const Shop = () => {
                                         <input type="text" className="form-control" id="inputCity"></input>
                                     </div>
                                     <div className="col-md-4">
-                                        <label for="inputState" className="form-label">State</label>
-                                        <select id="inputState" className="form-select">
-                                            <option selected>Choose...</option>
+                                        <label for="inputState" className="form-label">Region</label>
+                                        <select id="inputState" className="form-select" placeholder="Choose...">
+                                            <option selected>Kanto</option>
+                                            <option selected>Unova</option>
+                                            <option selected>Kalos</option>
+                                            <option selected>Alola</option>
+                                            <option selected>Galar</option>
                                         </select>
                                     </div>
                                     <div className="col-md-2">
