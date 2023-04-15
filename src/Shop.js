@@ -16,12 +16,11 @@ export const Shop = () => {
 
     // window.addEventListener("load", () => {
     //     document.body.classList.add("min-h-screen");
-    //     document.body.classList.add(" bg-red-300");
+    //     document.body.classList.add(" bulba-green");
     //   });
 
-    document.body.style.backgroundColor = "pink";
 
-    const alertTrigger = document.getElementById('submit-btn')
+    //const alertTrigger = document.getElementById('submit-btn')
     
     
 
@@ -97,7 +96,7 @@ export const Shop = () => {
 
     const cartItems = cart.map((el) => (
         <div key={el.id}>
-            <img className="img-fluid bg-red-300" src={el.image} width={30} />
+            <img className="img-fluid bulba-green" src= {process.env.PUBLIC_URL + el.image} width={30} />
             {el.title}
             ${el.price}
         </div>
@@ -105,21 +104,21 @@ export const Shop = () => {
 
     let listItems = ProductsCategory.map((el) => (
         // PRODUCT
-        <div className="row border-top border-bottom bg-red-300" key={el.id}>
-            <div className="row main align-items-center bg-red-300">
-                <div className="col-2 bg-red-300">
-                    <img className="img-fluid bg-red-300" src={el.image} />
+        <div className="row border-top border-bottom bulba-green" key={el.id}>
+            <div className="row main align-items-center bulba-green">
+                <div className="col-2 bulba-green">
+                    <img className="img-fluid bulba-green" src= {process.env.PUBLIC_URL + el.image} ></img>
                 </div>
-                <div className="col bg-red-300">
-                    <div className="row text-muted bg-red-300">{el.title}</div>
-                    <div className="row bg-red-300">{el.category}</div>
+                <div className="col bulba-green">
+                    <div className="row text-muted bulba-green">{el.title}</div>
+                    <div className="row bulba-green">{el.category}</div>
                 </div>
-                <div className="col bg-red-300">
+                <div className="col bulba-green">
                     <button type="button" variant="light" onClick={() => removeFromCart(el)} > - </button>{" "}
                     <button type="button" variant="light" onClick={() => addToCart(el)}> + </button>
                 </div>
-                <div className="col bg-red-300">
-                    ${el.price} <span className="close bg-red-300">&#10005;</span>{howManyofThis(el.id)}
+                <div className="col bulba-green">
+                    ${el.price} <span className="close bulba-green">&#10005;</span>{howManyofThis(el.id)}
                 </div>
             </div>
         </div>
