@@ -104,7 +104,7 @@ export const Shop = () => {
 
     let listItems = ProductsCategory.map((el) => (
         // PRODUCT
-        <div className="row border-top border-bottom bulba-green" key={el.id}>
+        <div className="row border-top border-bottom bulba-green margin-lefter" key={el.id}>
             <div className="row main align-items-center bulba-green">
                 <div className="col-2 bulba-green">
                     <img className="img-fluid bulba-green" src={el.image} />
@@ -239,7 +239,7 @@ export const Shop = () => {
         <div>
     <div>
         <nav class="navbar">
-                <h1 class="navtitle">COM S 319 Assignment #2!</h1>
+                <h1 class="navtitle margin-lefter">COM S 319 Assignment #2!</h1>
         </nav>
     </div>
 
@@ -258,7 +258,7 @@ export const Shop = () => {
                             <div className="col-8" id="margin-wrangler">
 
 
-                                {/* <div id="liveAlertPlaceholder"></div> */}
+                                <div id="liveAlertPlaceholder"></div>
 
                                 <form className="row g-3" id="checkout-form">
 
@@ -381,11 +381,11 @@ export const Shop = () => {
                     {!inCheckOut && <div className="col-md-8 cart">
                     <div className="title">
                             <div className="row">
-                                <div className="py-10">
+                                <div className="py-10 margin-lefter">
                                 {(!inCheckOut && !orderComplete && !inCart) && <input placeholder="Type to Search..." className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="search" value={query} onChange={handleChange} />}
                                 </div>
                                 <div className="col">
-                                    <h2 class="cart-title">
+                                    <h2 class="cart-title margin-lefter">
                                         <b>Pokémon Shopping Cart</b>
                                     </h2>
                                 </div>
@@ -397,13 +397,13 @@ export const Shop = () => {
                             </div>
                         </div>
 
-                        <div>
+                        <div class="margin-lefter">
                             {(!inCart && !inCheckOut) && listItems}
                             {(inCart) && cartItems}
                         </div>
                     </div>}
 
-                    {inCart && <div className="float-end">
+                    {inCart && <div className="float-end margin-lefter">
                         {<p className="mb-0 me-5 d-flex align-items-center">
                             {<span className="small text-muted me-2">Order total:</span>}
                             {<span className="lead fw-normal">${cartTotal}</span>}
@@ -411,7 +411,7 @@ export const Shop = () => {
                     </div>}
                 </div>
             </div>
-            {(!inCheckOut && !orderComplete) && <div className="inline-block bg-gray-500 px-3 py-1 text-lg font-semibold mr-2 mt-2" onClick={() => goToCart()}><button>{inCart ? "Return to Shopping" : "Go to Cart"}</button></div>}
+            {(!inCheckOut && !orderComplete) && <div className="margin-lefter inline-block bg-gray-500 px-3 py-1 text-lg font-semibold mr-2 mt-2" onClick={() => goToCart()}><button>{inCart ? "Return to Shopping" : "Go to Cart"}</button></div>}
             {(inCart || inCheckOut) && !orderComplete && <div className="inline-block bg-green-500 px-3 py-1 text-lg font-semibold mr-2 mt-2" onClick={() => checkOut()}><button>{inCart ? "Check Out" : "Return to Cart"}</button></div>}
             {orderComplete && <div className="inline-block bg-red-500 px-3 py-1 text-lg font-semibold mr-2 mt-2" onClick={() => goToShopping()}><button>Return to Shopping</button></div>}
         </div>
