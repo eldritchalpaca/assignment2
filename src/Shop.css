@@ -34,6 +34,10 @@ body {
     font-family: Georgia, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+#margin-wrangler {
+    margin-top: 20px;
+}
+
 * {
     background-color: #edf7f7;
 }

@@ -252,14 +252,13 @@ export const Shop = () => {
                         
 
                         <div className="row">
-                            <div className="col-2"></div>
+                            {/* <div className="col-2"></div> */}
 
 
-                            <div className="col-8">
+                            <div className="col-8" id="margin-wrangler">
 
-                                <h1 class="cart-title"><center><b>Form Validation</b></center></h1>
 
-                                <div id="liveAlertPlaceholder"></div>
+                                {/* <div id="liveAlertPlaceholder"></div> */}
 
                                 <form className="row g-3" id="checkout-form">
 
